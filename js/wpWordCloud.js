@@ -13,15 +13,14 @@
 		console.log("WordCloud ID: " + window.wordcloudID);
 
 		wpwc(wpWordCloudSettings, "Read settings");
-	
-		if (wpWordCloudSettings.list == null && wpWordCloudSettings.countWords != 1) {
 		
-			wpWordCloudSettings.countWords = 1;
+		if (wpWordCloudSettings.data == null && wpWordCloudSettings.list == null) {
+			wpwc(wpWordCloudSettings, "Error: No text found.");
+			wpWordCloudSettings.data = 'Kein Text übermittelt. Bitte prüfe die Einstellungen im Backend.';
+			wpWordCloudSettings.countWords = 0;
 
-			wpwc(wpWordCloudSettings, "%cAchtung: count-words ist nicht aktiviert und wird automatisch auf 1 gesetzt.", 1);
-	
 		}
-
+	
 		// add canvas and / or html
 		$(this).append('<div class="word-cloud-controller"></div>');
 		if (wpWordCloudSettings.style == 'html') {
