@@ -417,9 +417,15 @@
       await worker.initialize(wpWordCloudSettings.ocrLanguage);
       const { data: { text } } = await worker.recognize(data);
 
-      document.getElementById('word-cloud-text-'+wpWordCloudSettings.id).textContent = text;
-
+      document.getElementById('word-cloud-text-'+wpWordCloudSettings.id).value = text;
+      
       await worker.terminate();
+
+      console.log("Texterkennung abgeschlossen");
+      // render word cloud
+      setTimeout(function() {
+         $("button.render-word-cloud").click();
+      }, 500);
 
       $('.ocr-loader-container').hide();
 

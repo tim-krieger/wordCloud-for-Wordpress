@@ -5,11 +5,20 @@
 
 .black-list-item:hover {
     cursor: pointer;
+    background-color: #FF0000;
 
 }
 
-.black-list-item:last-of-type {
-    padding-right: 0;
+.black-list-item {
+    display: inline-block;
+    background-color: #333333;
+    color: #fff;
+    padding: 4px 6px !important;
+    font-size: .9rem;
+    margin: 3px;
+    line-height: 1;
+    transition: 0.15s all ease;
+    border-radius: 3px;
 }
 
 .black-list-word-removal {
@@ -33,9 +42,12 @@
     position: absolute;
     z-index: 1000;
     display: none;
-    background-color: #ffffff;
-    font-family: sans-serif;
-
+    background-color: #fff;
+    line-height: 1;
+    color: #000;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    padding: 10px 15px;
 }
 
 .word-cloud-tooltip::before {
@@ -149,34 +161,178 @@
 
 
 .word-cloud-container input {
-    width: 80%;
     margin: 1em auto;
     display: block;
 }
+.word-cloud-container input[type="checkbox"] {
+    display: inline-block;
+    margin: 0;
+    margin-top: -1px;
+    margin-right: 6px;
+}
+
+.word-cloud-container .kits-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .word-cloud-text-from-image-progress-bar-container {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
     height: 1em;
     display: block;
 
 }
-    .word-cloud-text-from-image-progress-bar-container>progress{
-        width: 100%;
-    }
+
+ /* IE and EDGE */
+.word-cloud-text-from-image-progress-bar-container progress {
+    /* RESETS */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 20px;
+    background-color: #777;
+    color: #00a3d3;
+}
+
+/* WEBKIT BROWSERS - CHROME, OPERA AND SAFARI */
+.word-cloud-text-from-image-progress-bar-container progress::-webkit-progress-bar {
+    background-color: #777;
+    border-radius: 20px;
+}
+
+.word-cloud-text-from-image-progress-bar-container progress::-webkit-progress-value {
+    background-color: #00a3d3;
+    border-radius: 20px;
+}
+
+/* MOZILLA FIREFOX */
+.word-cloud-text-from-image-progress-bar-container progress::-moz-progress-bar {
+    background-color: #00a3d3;
+    border-radius: 20px;
+}
 
 
 .word-cloud-container textarea {
-    width: 80%;
-    margin: 0 auto;
+
     display: block;
 }
 
 .word-cloud-container button.render-word-cloud,
-.word-cloud-container button.text-from-image {
-    width: 40%;
-    display: block;
-    margin: 0.5em auto;
-    border-radius: 10px;
+.word-cloud-container button.text-from-image,
+.canvas-download-button {
+    display: inline-block;
     background-color: #00a3d3;
+    color: #fff !important;
+    padding: .538em 1.077em;
+    font-family: inherit;
+    font-size: .923em;
+    font-weight: 400;
+    margin: 20px 0;
+    border: 0;
+    cursor: pointer;
+    line-height: 1.65;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: inherit;
+    text-decoration: none !important;
+    max-width: 100%;
+    transition: 0.15s all ease;
+    border-radius: 3px;
+}
+
+.word-cloud-container button.render-word-cloud:hover,
+.word-cloud-container button.text-from-image:hover,
+.canvas-download-button:hover {
+    background-color: #00456f;
+}   
+
+.canvas-download-button {
+    display: none;
+}
+
+.word-cloud-container {
+    text-align: center;
+}
+
+.word-cloud {
+    display: flex;
+    max-width: 1024px;
+    margin: 30px auto;
+}
+
+.word-cloud-controller input[type=file],
+.word-cloud-text-from-image-progress-bar-container {
+    display: none;
+}
+
+.word-cloud-container input[type=radio] {
+    display:none; 
+    margin:10px;
+    cursor: pointer;
+}
+.word-cloud-container label:hover {
+    cursor: pointer;
+}
+.word-cloud-container input[type=radio] + label {
+    display:inline-block;
+    margin:-2px;
+    padding: 4px 12px;
+    color: #fff;
+    background-color: #00a3d3;
+    border: none;
+}
+.word-cloud-container input[type=radio]:checked + label { 
+   background-image: none;
+   background-color:#00456f;
+}
+.kits_orientierung_wrapper {
+    display: none;
+}
+.kits_orientierung {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.kits_orientierung svg {
+    height: 1em;
+    width: auto;
+    margin-right: 10px;
+}
+.github_link {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 5px;
+}
+#kits_github_link {
+    display: inline-block;
+    width: auto;
+    height: 20px;
+    position: relative;
+    top: 5px;
+    margin-right: 3px;
+    color: #999;
+}
+.github_link a {
+    color: #999;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+.github_link a:hover {
+    color: #555;
+}
+canvas.word-cloud {
+    height: 1px;
+}
+.word-cloud-example {
+    background-image: url(../img/wortwolke-beispiel.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: 78.125%;
+    margin: 30px auto;
 }
