@@ -13,17 +13,7 @@
 		console.log("WordCloud ID: " + window.wordcloudID);
 
 		wpwc(wpWordCloudSettings, "Read settings");
-		
-		if (wpWordCloudSettings.data == null && wpWordCloudSettings.list == null) {
-
-			wpwc(wpWordCloudSettings, "Error: No text found.");
-
-			wpWordCloudSettings.data = 'Kein Text übermittelt. Bitte prüfe die Einstellungen im Backend.';
-
-			wpWordCloudSettings.countWords = 0;
-
-		}
-
+	
 		if (wpWordCloudSettings.list == null && wpWordCloudSettings.countWords != 1) {
 		
 			wpWordCloudSettings.countWords = 1;
@@ -475,17 +465,11 @@
 	}
 
 	// log function
-	function wpwc(wpWordCloudSettings, message, error = 0){
+	function wpwc(wpWordCloudSettings, message){
 
 		if (wpWordCloudSettings.debug == 1) {
 
 			console.log("[WP WordCloud] " + message);
-
-		}
-
-		if (error > 0) {
-
-			console.warn("[WP WordCloud] " + message, 'color: red;');
 
 		}
 
